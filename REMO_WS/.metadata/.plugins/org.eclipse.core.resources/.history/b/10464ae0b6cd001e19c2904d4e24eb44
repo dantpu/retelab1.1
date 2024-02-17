@@ -27,7 +27,10 @@ public class RunStatechart {
 		print(s);
 		s.raiseStart();
 		s.runCycle();
-		
+		System.in.read();
+		s.raiseWhite();
+		s.runCycle();
+		print(s);
 		
 		try {
 			boolean b = true;
