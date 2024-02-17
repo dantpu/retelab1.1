@@ -21,31 +21,30 @@ public class RunStatechart {
 		ExampleStatemachine s = new ExampleStatemachine();
 		s.setTimer(new TimerService());
 		RuntimeService.getInstance().registerStatemachine(s, 200);
-		s.init();
-		s.enter();
-		s.runCycle();
-		print(s);
-		s.raiseStart();
-		s.runCycle();
-		
-		
-		try {
+s.init();s.enter();
+				s.runCycle();
+				print(s);
+				s.raiseStart();
+				s.runCycle();		try {
 			boolean b = true;
 			while(b) {
 				BufferedReader reader = new BufferedReader(
 					new InputStreamReader(System.in));
 				String name = reader.readLine();
 				switch(name) {
-					case "white":
-						s.raiseWhite();
-						break;
-					case "black":
-						s.raiseBlack();
-						break;
-					case "start":
-						s.raiseStart();
-						break;
-					case "exit":
+				case "start":
+					s.raiseStart();
+					break;
+					
+				case "white":
+					s.raiseWhite();
+					break;
+					
+				case "red":
+					s.raiseRed();
+					break;
+					
+				case "exit":
 						b=false;
 						break;
 				}
@@ -62,7 +61,8 @@ public class RunStatechart {
 	}
 
 	public static void print(IExampleStatemachine s) {
-		System.out.println("W = " + s.getSCInterface().getWhiteTime());
-		System.out.println("B = " + s.getSCInterface().getBlackTime());
-	}
+System.out.println("w= " + s.getSCInterface().getWhiteTime());
+System.out.println("b= " + s.getSCInterface().getBlackTime());
 }
+}
+
